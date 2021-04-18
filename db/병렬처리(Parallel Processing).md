@@ -6,8 +6,6 @@ Oracle DB 에서 SQL문을 튜닝을 하다 마지막으로 시도하는것이 �
 
 OLAP(Online Analytical Processing) 환경에서 필요시 사용을 고려해볾직 함.
 
-출처: https://jins-dev.tistory.com/entry/간략하게-정리해보는-OLTP-OLAP-의-개념 [Jins' Dev Inside]
-
 | MySQL은 병렬 처리가 없음. 모든 SQL 처리를 단일 코어에서 Nested Loop Join 방식으로만 데이터를 처리
 
 ## 사용법
@@ -84,3 +82,15 @@ Allocation Weight 는 RAC 구성때 병렬 쿼리를 실행하는 인스턴스 �
 이 읽은 데이터를 받아서 Sorting(정렬), DML, DDL, Join 등을 수행하는 작업을 하는 병렬프로세들을 Consumer
 
 작업된 결과들을 취합(통합)하는 작업을 하는 프로세서가 있는데 이를 QC(Query Coordinator)
+
+## 오라클 병렬처리 Parallel DOP (Degree of Parallelism)
+
+DOP 란 Degree Of Parallelism 의 약어로, 병렬도라고 함. 병렬처리할 때 병렬프로세스를 몇개 띄울 것인지를 의미하며, DOP 가 20 이면 20개의 병렬프로세스를 띄워서 작업한다는 의미
+
+```
+SELECT degree FROM user_tables WHERE table_name = "EMP";
+```
+
+이 degree 값이 테이블의 DOP(병렬도, Degree Of Parallelism)를 나타냄.
+
+alter table ~ parallel 커맨드로 테이블의 DOP를 변경할 수도 있음.
