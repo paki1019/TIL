@@ -73,16 +73,6 @@ Allocation Weight 는 RAC 구성때 병렬 쿼리를 실행하는 인스턴스 �
 
 따라서 병렬도는 Allocation Height \* Allocation Weight
 
-## QC, Consumer, Producer
-
-![QC, Consumer, Producer](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fy9Qa0%2FbtqytV7dIAq%2FK95i8dY3X43nzrZhvhkPrk%2Fimg.png)
-
-테이블에서 데이터를 읽는 작업을 하는 병렬프로세서들을 Producer
-
-이 읽은 데이터를 받아서 Sorting(정렬), DML, DDL, Join 등을 수행하는 작업을 하는 병렬프로세들을 Consumer
-
-작업된 결과들을 취합(통합)하는 작업을 하는 프로세서가 있는데 이를 QC(Query Coordinator)
-
 ## 오라클 병렬처리 Parallel DOP (Degree of Parallelism)
 
 DOP 란 Degree Of Parallelism 의 약어로, 병렬도라고 함. 병렬처리할 때 병렬프로세스를 몇개 띄울 것인지를 의미하며, DOP 가 20 이면 20개의 병렬프로세스를 띄워서 작업한다는 의미
@@ -94,3 +84,17 @@ SELECT degree FROM user_tables WHERE table_name = "EMP";
 이 degree 값이 테이블의 DOP(병렬도, Degree Of Parallelism)를 나타냄.
 
 alter table ~ parallel 커맨드로 테이블의 DOP를 변경할 수도 있음.
+
+## QC, Consumer, Producer
+
+![QC, Consumer, Producer](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fy9Qa0%2FbtqytV7dIAq%2FK95i8dY3X43nzrZhvhkPrk%2Fimg.png)
+
+테이블에서 데이터를 읽는 작업을 하는 병렬프로세서들을 Producer
+
+이 읽은 데이터를 받아서 Sorting(정렬), DML, DDL, Join 등을 수행하는 작업을 하는 병렬프로세들을 Consumer
+
+작업된 결과들을 취합(통합)하는 작업을 하는 프로세서가 있는데 이를 QC(Query Coordinator)
+
+## 병렬 실행 서버 통신 하는 방법
+
+![병렬 실행 서버 통신 하는 방법](https://docs.oracle.com/cd/E11882_01/server.112/e25523/img/vldbg015.gif)
