@@ -26,7 +26,20 @@ REDIS는 다음 특징을 갖는 data structure
 # Redis 는 어떤 특징을 가지고 있을까
 캐시로 많이 사용하는 Memcached 와 Redis 의 가장 큰 차이는 Collection 을 제공하냐의 여부, Redis 에서는 Collection 을 제공
 - 대상 사용자가 많은 경우 랭킹을 산출하는 서버를 구현
-  - 이 때 디스크기반 storage 를 사용하게 된다면, 가져와야 하는 데이터 셋이 많아질수록 디스크 접근 횟수가 많아지므로 속도가 점점 느려짐
   - Redis 의 Sorted Set 을 사용하면 랭킹 서버를 쉽게 구현 가능하며 replication 까지도 가능
+  - 단 용량 한계에 종속적이 됨.
 - 친구 리스트를 관리할 때 데이터를 key-value 형태로 저장
+    - Redis 자료구조는 Atomic 하다는 특징 때문에 `race condition` 같은 이슈를 피할 수 있음.
+    - Redis Transaction 은 한번의 딱 하나의 명령만 수행할 수 있으며, `single-threaded` 특성을 유지하기 때문에 다른 스토리지 플랫폼보다는 이슈가 덜함.
 
+따라서 레디스는 remote data storage 로서 여러 서버에서 같은 데이터를 공유하고 보고싶을 때 많이 사용
+
+# Redis Collection
+1. String: 가장 일반적인 형태로, key - value 로 저장하는 형태 
+2. Set: 중복된 데이터를 담지 않기 위해 사용하는 자료구조. 중복된 데이터를 여러번 저장하면 최종 한번만 저장됨
+3. List: Array 형식의 데이터 구조. List 를 사용하면 처음과 끝에 데이터를 넣고 빼는건 속도가 빠르지만 중간에 데이터를 삽입하거나 삭제하는건 어려움이 있음.
+4. Sorted Set: 유저 랭킹 보드서버 같은 구현에서 사용할 수 있음.
+
+Collection 사용시 주의점
+- 하나의 컬렉션에 너무 많은 아이템을 담으면 좋지 않음. 가능하면 10000개 이하, 몇천개 수준의 데이터셋을 유지하는게 Redis 성능에 영향주지 않음.
+- Expire 은 Collection 의 아이템 개별로 걸리지않고, 전체 Collection 에 대해서만 걸림. 10000 개의 아이템을 가진 Collection 에 expire 가 걸려있다면, 그 시간 이후에 10000 개의 아이템이 모두 삭제됨.
