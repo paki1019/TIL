@@ -106,7 +106,7 @@ db.employee.insert(m)
 # 조회
 db.employee.find()
 
-# arr 변수로다수의 Document 입력
+# arr 변수로 다수의 Document 입력
 db.employee.insert(arr)
 
 # 조회
