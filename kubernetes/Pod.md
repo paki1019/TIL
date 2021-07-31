@@ -24,7 +24,7 @@ kubectl describe pod/echo
 minikube 클러스터 안에 Pod이 있고 Pod 안에 컨테이너가 있음
 
 kubectl run을 실행하고 Pod이 생성되는 과정
-1. Scheduler는 API서버를 감시하면서 할당되지 않은unassigned Pod이 있는지 체크
+1. Scheduler는 API서버를 감시하면서 할당되지 않은 unassigned Pod이 있는지 체크
 2. Scheduler는 할당되지 않은 Pod을 감지하고 적절한 노드node에 할당 (minikube는 단일 노드)
 3. 노드에 설치된 kubelet은 자신의 노드에 할당된 Pod이 있는지 체크
 4. kubelet은 Scheduler에 의해 자신에게 할당된 Pod의 정보를 확인하고 컨테이너 생성
