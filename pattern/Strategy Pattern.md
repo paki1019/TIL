@@ -31,4 +31,4 @@
 
 > 출처
 >
-> - https://sustainable-dev.tistory.com/125
+> - https://gmlwjd9405.github.io/2018/07/06/strategy-pattern.html
