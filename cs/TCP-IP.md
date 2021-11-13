@@ -7,7 +7,7 @@
 
 ## TCP/IP의 계층
 
-![TCP/IP의 계층](https://lh3.googleusercontent.com/proxy/KsYTiggWW9sMlg8aUly1nJXGhE77YZjJepd0DPZ_MExV2gaGj3vAKFos_Wa08AAOxaZ7zU8Ls_UnKaxsvWfKb6gxjUw0unXB_vgN1db-mCeTUA)
+![TCP/IP의 계층](http://cfile23.uf.tistory.com/image/213F623C566BAE253BF7A8)
 
 - OSI 7 Layers와 비교했을때 이론보다 실용성에 중점을 둠.
 
