@@ -187,3 +187,7 @@
 ### 저장소 분리 패턴
 
 [저장소 분리 패턴](https://github.com/paki1019/TIL/blob/main/msa/%EC%A0%80%EC%9E%A5%EC%86%8C%20%EB%B6%84%EB%A6%AC%20%ED%8C%A8%ED%84%B4.md)
+
+### CQRS 패턴
+
+[CQRS 패턴](https://github.com/paki1019/TIL/blob/main/msa/%EC%9D%BD%EA%B8%B0%EC%99%80%20%EC%93%B0%EA%B8%B0%20%EB%B6%84%EB%A6%AC:%20CQRS%20%ED%8C%A8%ED%84%B4.md)
