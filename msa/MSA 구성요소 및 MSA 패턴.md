@@ -183,3 +183,7 @@
 ### 마이크로서비스 통신 패턴
 
 [마이크로서비스 통신 패턴](https://github.com/paki1019/TIL/blob/main/msa/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4%20%ED%86%B5%EC%8B%A0%20%ED%8C%A8%ED%84%B4.md)
+
+### 저장소 분리 패턴
+
+[저장소 분리 패턴](https://github.com/paki1019/TIL/blob/main/msa/%EC%A0%80%EC%9E%A5%EC%86%8C%20%EB%B6%84%EB%A6%AC%20%ED%8C%A8%ED%84%B4.md)
