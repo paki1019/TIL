@@ -286,3 +286,62 @@ String query = "select function("group_concat", m.username) from Member m;
 List<String> result = em.createQuery(query, Integer.class).getResultList();
 //관리자1, 관리자 2 라는 하나의 String으로 반환됨
 ```
+
+## 경로 표현식
+
+```
+select m.username -> 상태필드
+from Member m
+join m.team t     -> 단일 값 연관 필드
+join m.orders o   -> 컬렉션 값 연관 필드
+where t.name = 'A'
+```
+
+.(점)을 찍어 객체 그래프를 탐색하는 것.
+
+### 경로 표현식 용어 정리
+
+- 상태필드 : 단순히 값을 저장하기 위한 필드 (m. username)
+- 연관필드 : 연관관계를 위한 필드
+  - 단일 값 연관 필드 (@ManyToOne, @OneToOne, 대상이 Entity[m.team])
+  - 컬렉션 값 연관 필드 (@OneToMany, ManyToMany, 대상이 컬렉션[m.orders])
+
+### 경로 표현식 특징
+
+- 상태필드 : 경로 탐색의 끝, 탐색X
+- 단일 값 연관 경로 : 묵시적 내부 조인(inner join) 발생, 탐색O
+  - 조심해서 사용. 튜닝하기 힘들다.
+- 컬렉션 값 연관 경로 : 묵시적 내부 조인 발생, 탐색 X
+  - 컬렉션이기 때문에 내부 탐색이 안되며 SIZE밖에 안된다.
+- From 절에서 명시적 조인을 통해 별칭을 얻으면 별칭을 통해 탐색이 가능함.
+
+```
+Member member1 = new Member();
+member1.setUsername("관리자1");
+em.persist(member1);
+
+Member member2 = new Member();
+member2.setUsername("관리자1");
+em.persist(member2);
+
+em.flush();
+em.clear();
+
+// 상태필드 username에서 더이상 참조할 수 있는게 없다.
+String query1 = "select m.username from Member m";
+List<String> result = em.createQuery(query1, String.class).getResultList();
+
+// 묵시적인 내부 조인 발생 ** 중요, 탐색이 가능하다. m.team.name
+String query2 = "select m.team from Member m";
+List<Team> teamResult = em.createQuery(query2, Team.class).getResultList();
+
+// 묵시적 내부 조인 발생, 탐색이 안된다.
+String query3 = "select t.members from Team t";
+// From절에서 명시적으로 조인을 통해 탐색이 가능하다.
+String query31 = "select m.team.name from Team t join t.members m";
+List result = em.createQuery(query31, Collection.class).getResultList();
+```
+
+### 주의 사항
+
+- 실무에서는 묵시적 조인을 사용X, 명시적 조인을 사용해야 튜닝하기 쉬움.
