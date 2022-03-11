@@ -190,4 +190,4 @@
 
 ### CQRS 패턴
 
-[CQRS 패턴](https://github.com/paki1019/TIL/blob/main/msa/%EC%9D%BD%EA%B8%B0%EC%99%80%20%EC%93%B0%EA%B8%B0%20%EB%B6%84%EB%A6%AC:%20CQRS%20%ED%8C%A8%ED%84%B4.md)
+[CQRS 패턴](https://github.com/paki1019/TIL/blob/main/msa/%EC%9D%BD%EA%B8%B0%EC%99%80%20%EC%93%B0%EA%B8%B0%20%EB%B6%84%EB%A6%AC%20CQRS%ED%8C%A8%ED%84%B4.md)
