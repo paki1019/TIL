@@ -1,6 +1,6 @@
 # Kafka Connect
 
-![Kafka Connect](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcl7rAm%2FbtqD2caZxZC%2FJX2fkIeQxps2lCGyaFETzK%2Fimg.png)
+![Kafka Connect](https://blog.kakaocdn.net/dn/8yIfT/btqSXj8q4P9/YtyvFrCBepgoRo1UBzusk0/img.png)
 
 Kafka는 아키텍처 중심에서 다양한 외부 시스템과 메시지 파이프라인을 구성함. 일반적으로 메시지를 송수신하기 위해 외부 시스템에 producer, consumer를 구현하게 되는데, 이때 외부 시스템의 수가 많아지면 구현 반복 작업이 많아지고 개발 비용이 증가하게 됨.
 
@@ -14,7 +14,7 @@ Kafka Connect 공부를 시작하면서 가장 헷갈리게 되는 부분, Conne
 
 ### Connect
 
-![Connect](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHV5O3%2FbtqD1NoZJ2c%2FtDiOw4RnJfW2VnHXe8FPbk%2Fimg.png)
+![Connect](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcl7rAm%2FbtqD2caZxZC%2FJX2fkIeQxps2lCGyaFETzK%2Fimg.png)
 
 Connector를 등록하는 프레임워크이자 서버, 모듈들의 실행 순서를 관장함.
 
