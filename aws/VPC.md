@@ -63,6 +63,16 @@
 - 보안 검문소
 - NACL -> Stateless, SG -> Stateful
 - Access Block은 NACL에서만 가능
+- NACL 설정하기
+  - NACL - stateless
+  - Security Group - stateful
+
+> 방화벽에서 stateless와 stateful의 차이
+>
+> stateful: request의 port(inbound port)를 EC2에서 기억, response의 port(outbound port)에 반영
+> stateless: request의 port(inbound port)를 EC2에서 기억못함, response의 port(outbound port)에 반영 못함
+
+
 
 ### NAT(Network Address Translation) instance/NAT gateway
 
